@@ -1,0 +1,6 @@
+a) O(n)
+b) O(log n)
+c) O(n^2)
+d) O(n^3)
+e) O(log^2 n)
+f) O(log^2 n)
