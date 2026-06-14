@@ -1,6 +1,58 @@
-a) O(n)
-b) O(log n)
-c) O(n^2)
-d) O(n^3)
-e) O(log^2 n)
-f) O(log^2 n)
+def a(n, k):
+    k += 1         # 4
+    i = n          # 2
+    while i > 0:   # 3 * (n + 1)
+        i -= 1     # 4 * n
+    return k
+
+
+def b(n, k):
+    i = n          # 2
+    while i > 1:   # 3 * (m + 1)
+        k += 1     # 4 * m
+        i //= 2    # 4 * m
+    return k
+
+
+def c(n, k):
+    i = 0            # 2
+    while i < n:     # 3 * (m + 1)
+        j = 0        # 2 * m
+        while j < n: # 3 * m * (m + 1)
+            k += 1   # 4 * m^2
+            j += 2   # 4 * m^2
+        i += 2       # 4 * m
+    return k
+
+
+def d(n, k):
+    i = 0              # 2
+    while i < n:       # 3 * (n + 1)
+        j = 0          # 2 * n
+        while j < i*i: # 3 * n + 3 * ((n - 1) * n * (2n - 1) / 6)
+            k += 1     # 4 * ((n - 1) * n * (2n - 1) / 6)
+            j += 1     # 4 * ((n - 1) * n * (2n - 1) / 6)
+        i += 1         # 4 * n
+    return k
+
+
+def e(n, k):
+    i = 1            # 2
+    while i < n:     # 3 * (m + 1)
+        j = 1        # 2 * m
+        while j < n: # 3 * m * (m + 1)
+            k += 1   # 4 * m^2
+            j *= 2   # 4 * m^2
+        i *= 2       # 4 * m
+    return k
+
+
+def f(n, k):
+    i = 1            # 2
+    while i < n:     # 3 * (m + 1)
+        j = i        # 2 * m
+        while j < n: # 3 * m + 3 * (m * (m + 1) / 2)
+            k += 1   # 4 * (m * (m + 1) / 2)
+            j *= 2   # 4 * (m * (m + 1) / 2)
+        i *= 2       # 4 * m
+    return k
